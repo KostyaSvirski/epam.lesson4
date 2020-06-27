@@ -81,7 +81,7 @@ public class ArrayService {
 		}
 		return primeNumbers;
 	}
-/////////////////////////////////////////////////////
+
 	private static boolean primeNumber(int elementToCheck) {
 		for (int divider = 2; divider <= Math.sqrt(elementToCheck); divider++) {
 			if (elementToCheck % divider == 0) {
