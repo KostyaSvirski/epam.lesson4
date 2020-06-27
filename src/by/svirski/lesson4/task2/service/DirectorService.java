@@ -7,7 +7,7 @@ import by.svirski.lesson4.task2.utils.validator.ValidatorForArray;
 
 public class DirectorService {
 
-	public int[][] bubbleSortAscending(ConditionsOfSorting condition, int numberOfLines, boolean needReverse) throws ProjectException {
+	public int[][] bubbleSort(ConditionsOfSorting condition, int numberOfLines, boolean needReverse) throws ProjectException {
 		JaggedArrayCreator creator = new JaggedArrayCreator();
 		int[][] sourceArray = creator.createArray(numberOfLines);
 		sourceArray = creator.fillNumbers(sourceArray);

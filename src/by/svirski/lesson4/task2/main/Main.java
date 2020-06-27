@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		DirectorService ds = new DirectorService();
 		try {
-			int[][] result = ds.bubbleSortAscending(ConditionsOfSorting.SORTING_BY_SUM, 5, false);
+			int[][] result = ds.bubbleSort(ConditionsOfSorting.SORTING_BY_SUM, 5, false);
 			System.out.println(PrinterForArray.print(result));
 		} catch (ProjectException e) {
 			e.printStackTrace();
