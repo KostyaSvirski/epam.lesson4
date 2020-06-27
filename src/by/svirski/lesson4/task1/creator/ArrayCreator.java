@@ -26,17 +26,25 @@ public class ArrayCreator {
 		return newArray;
 	}
 
-	public static CustomArray createArray(String file) throws IOException {
+	public static CustomArray createArray(String file) {
 		Path path = Paths.get(file);
-		List<String> params = Files.readAllLines(path);
-		String values = params.get(0);
-		String[] valuesArray = values.split(" ");
-
-		CustomArray newArray = new CustomArray(valuesArray.length);
-		for (int i = 0; i < valuesArray.length; i++) {
-			newArray.setElementByIndex(Integer.parseInt(valuesArray[i]), i);
+		List<String> params;
+		try {
+			params = Files.readAllLines(path);
+			String values = params.get(0);
+			String[] valuesArray = values.split(" ");
+			
+			CustomArray newArray = new CustomArray(valuesArray.length);
+			for (int i = 0; i < valuesArray.length; i++) {
+				newArray.setElementByIndex(Integer.parseInt(valuesArray[i]), i);
+			}
+			return newArray;
+		} catch (IOException e) {
+			int[] array = new int[1];
+			array[0] = -1;
+			CustomArray defaultArray= new CustomArray(array); 
+			return defaultArray;
 		}
-		return newArray;
 	}
 
 	public static CustomArray createArray() {
