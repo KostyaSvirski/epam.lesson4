@@ -25,7 +25,7 @@ public class SortingService {
 	}
 
 	private static int[][] reverseArray(int[][] sourceArray) {
-		for (int i = 0; i < sourceArray.length; i++) {
+		for (int i = 0; i < sourceArray.length/2; i++) {
 			int[] line = sourceArray[i];
 			sourceArray[i] = sourceArray[sourceArray.length - i - 1];
 			sourceArray[sourceArray.length - i - 1] = line;
