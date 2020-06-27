@@ -11,6 +11,8 @@ import java.util.Scanner;
 import by.svirski.lesson4.task1.entity.CustomArray;
 
 public class ArrayCreator {
+	
+	
 
 	public static CustomArray createArray(int[] values) {
 		CustomArray newArray = new CustomArray(values);
@@ -21,7 +23,7 @@ public class ArrayCreator {
 		CustomArray newArray = new CustomArray(size);
 		Random random = new Random();
 		for (int i = 0; i < size; i++) {
-			newArray.setElementByIndex(random.nextInt(), i);
+			newArray.putElementByIndex(random.nextInt(), i);
 		}
 		return newArray;
 	}
@@ -36,7 +38,7 @@ public class ArrayCreator {
 			
 			CustomArray newArray = new CustomArray(valuesArray.length);
 			for (int i = 0; i < valuesArray.length; i++) {
-				newArray.setElementByIndex(Integer.parseInt(valuesArray[i]), i);
+				newArray.putElementByIndex(Integer.parseInt(valuesArray[i]), i);
 			}
 			return newArray;
 		} catch (IOException e) {
@@ -52,7 +54,7 @@ public class ArrayCreator {
 		int size = scanner.nextInt();
 		CustomArray newArray = new CustomArray(size);
 		for (int i = 0; i < size; i++) {
-			newArray.setElementByIndex(scanner.nextInt(), i);
+			newArray.putElementByIndex(scanner.nextInt(), i);
 		}
 		scanner.close();
 		return newArray;

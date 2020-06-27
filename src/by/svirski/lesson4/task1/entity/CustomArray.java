@@ -2,30 +2,30 @@ package by.svirski.lesson4.task1.entity;
 
 public class CustomArray implements Cloneable {
 
-	private int[] defaultArray;
+	private int[] startArray;
 
 	public CustomArray() {
 		
 	}
 
 	public CustomArray(int size) {
-		defaultArray = new int[size];
+		startArray = new int[size];
 	}
 
 	public CustomArray(int[] defaultArray) {
-		this.defaultArray = defaultArray;
+		this.startArray = defaultArray;
 	}
 
-	public int getElementByIndex(int i) {
-		return defaultArray[i];
+	public int takeElementByIndex(int i) {
+		return startArray[i];
 	}
 
-	public void setElementByIndex(int value, int i) {
-		defaultArray[i] = value;
+	public void putElementByIndex(int value, int i) {
+		startArray[i] = value;
 	}
 	
-	public int getLength() {
-		return defaultArray.length;
+	public int calculateLength() {
+		return startArray.length;
 	}
 	
 	public CustomArray clone() throws CloneNotSupportedException{
@@ -37,7 +37,7 @@ public class CustomArray implements Cloneable {
 		final int prime = 31;
 		int result = 1;
 		int resultTemp = 1;
-		for (int i : defaultArray) {
+		for (int i : startArray) {
 			resultTemp = prime * resultTemp + i;
 		}
 		result = prime * result + resultTemp;
@@ -56,11 +56,11 @@ public class CustomArray implements Cloneable {
 			return false;
 		}
 		CustomArray other = (CustomArray) obj;
-		if (other.defaultArray.length != defaultArray.length) {
+		if (other.startArray.length != startArray.length) {
 			return false;
 		}
-		for (int i = 0; i < defaultArray.length; i++) {
-			if (other.defaultArray[i] != defaultArray[i]) {
+		for (int i = 0; i < startArray.length; i++) {
+			if (other.startArray[i] != startArray[i]) {
 				return false;
 			}
 		}
@@ -71,7 +71,7 @@ public class CustomArray implements Cloneable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("CustomArray [defaultArray=");
-		for(int i : defaultArray) {
+		for(int i : startArray) {
 			builder.append(i);
 			builder.append(" ");
 		}

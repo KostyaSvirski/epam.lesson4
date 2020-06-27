@@ -31,7 +31,7 @@ public class ArrayService {
 
 	public static int binarySearchWrapper(CustomArray sourceArray, int key) throws CloneNotSupportedException {
 		CustomArray sortedArray = sortingArray(sourceArray, 1);
-		int valueSearched = binarySearch(sortedArray, key, 0, sortedArray.getLength() - 1);
+		int valueSearched = binarySearch(sortedArray, key, 0, sortedArray.calculateLength() - 1);
 		return valueSearched;
 	}
 
@@ -40,9 +40,9 @@ public class ArrayService {
 		if (left >= right) {
 			return -1;
 		}
-		if (sourceArray.getElementByIndex(mid) == key) {
+		if (sourceArray.takeElementByIndex(mid) == key) {
 			return mid;
-		} else if (sourceArray.getElementByIndex(mid) < key) {
+		} else if (sourceArray.takeElementByIndex(mid) < key) {
 			return binarySearch(sourceArray, key, mid + 1, right);
 		} else {
 			return binarySearch(sourceArray, key, left, mid);
@@ -52,10 +52,10 @@ public class ArrayService {
 
 	public static int[] findMinMaxElement(CustomArray sourceArray) {
 		int[] result = new int[2];
-		int min = sourceArray.getElementByIndex(0);
+		int min = sourceArray.takeElementByIndex(0);
 		int max = min;
-		for (int i = 0; i < sourceArray.getLength(); i++) {
-			int elementToCheck = sourceArray.getElementByIndex(i);
+		for (int i = 0; i < sourceArray.calculateLength(); i++) {
+			int elementToCheck = sourceArray.takeElementByIndex(i);
 			if (elementToCheck > max) {
 				max = elementToCheck;
 			} else if (elementToCheck < min) {
@@ -70,8 +70,8 @@ public class ArrayService {
 	
 	public static ArrayList<Integer> findPrimeNumbersWrapper(CustomArray sourceArray) throws ProjectException {
 		ArrayList<Integer> primeNumbers = new ArrayList<Integer>();
-		for (int i = 0; i < sourceArray.getLength(); i++) {
-			int elementToCheck = sourceArray.getElementByIndex(i);
+		for (int i = 0; i < sourceArray.calculateLength(); i++) {
+			int elementToCheck = sourceArray.takeElementByIndex(i);
 			if (primeNumber(elementToCheck)) {
 				primeNumbers.add(elementToCheck);
 			}
@@ -94,8 +94,8 @@ public class ArrayService {
 	
 	public static ArrayList<Integer> findFibonacciNumbersWrapper(CustomArray sourceArray) throws ProjectException {
 		ArrayList<Integer> fibonacciNumbers = new ArrayList<Integer>();
-		for (int i = 0; i < sourceArray.getLength(); i++) {
-			int elementToCheck = sourceArray.getElementByIndex(i);
+		for (int i = 0; i < sourceArray.calculateLength(); i++) {
+			int elementToCheck = sourceArray.takeElementByIndex(i);
 			if (fibonacciNumber(elementToCheck)) {
 				fibonacciNumbers.add(elementToCheck);
 			}
@@ -119,8 +119,8 @@ public class ArrayService {
 	
 	public static ArrayList<Integer> findNumbersSameDigitsWrapper(CustomArray sourceArray) {
 		ArrayList<Integer> numbersWithSameDigits = new ArrayList<Integer>();
-		for (int i = 0; i < sourceArray.getLength(); i++) {
-			int elementToCheck = sourceArray.getElementByIndex(i);
+		for (int i = 0; i < sourceArray.calculateLength(); i++) {
+			int elementToCheck = sourceArray.takeElementByIndex(i);
 			if (sameDigitNumber(elementToCheck)) {
 				numbersWithSameDigits.add(elementToCheck);
 			}

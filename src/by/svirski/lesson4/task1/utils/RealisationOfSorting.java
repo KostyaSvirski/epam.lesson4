@@ -5,9 +5,9 @@ import by.svirski.lesson4.task1.entity.CustomArray;
 public class RealisationOfSorting {
 
 	public static CustomArray bubbleMethod(CustomArray arrayToSort) {
-		for (int i = 0; i < arrayToSort.getLength() - 1; i++) {
-			for (int j = i + 1; j < arrayToSort.getLength(); j++) {
-				if (arrayToSort.getElementByIndex(i) > arrayToSort.getElementByIndex(j)) {
+		for (int i = 0; i < arrayToSort.calculateLength() - 1; i++) {
+			for (int j = i + 1; j < arrayToSort.calculateLength(); j++) {
+				if (arrayToSort.takeElementByIndex(i) > arrayToSort.takeElementByIndex(j)) {
 					swapElements(arrayToSort, i, j);
 				}
 			}
@@ -16,11 +16,11 @@ public class RealisationOfSorting {
 	}
 
 	public static CustomArray shellMethod(CustomArray arrayToSort) {
-		int interval = arrayToSort.getLength() / 2;
+		int interval = arrayToSort.calculateLength() / 2;
 		while (interval >= 1) {
-			for (int i = 0; i < arrayToSort.getLength(); i++) {
+			for (int i = 0; i < arrayToSort.calculateLength(); i++) {
 				for (int j = i - interval; j >= 0; j -= interval) {
-					if (arrayToSort.getElementByIndex(j) < arrayToSort.getElementByIndex(j + interval)) {
+					if (arrayToSort.takeElementByIndex(j) < arrayToSort.takeElementByIndex(j + interval)) {
 						swapElements(arrayToSort, j, j + interval);
 					}
 				}
@@ -31,25 +31,25 @@ public class RealisationOfSorting {
 	}
 
 	public static CustomArray insertionMethod(CustomArray arrayToSort) {
-		for (int i = 0; i < arrayToSort.getLength(); i++) {
-			int value = arrayToSort.getElementByIndex(i);
+		for (int i = 0; i < arrayToSort.calculateLength(); i++) {
+			int value = arrayToSort.takeElementByIndex(i);
 			int j = i - 1;
 			for (; j >= 0; j--) {
-				if (value < arrayToSort.getElementByIndex(j)) {
-					arrayToSort.setElementByIndex(arrayToSort.getElementByIndex(j), j + 1);
+				if (value < arrayToSort.takeElementByIndex(j)) {
+					arrayToSort.putElementByIndex(arrayToSort.takeElementByIndex(j), j + 1);
 				} else {
 					break;
 				}
 			}
-			arrayToSort.setElementByIndex(value, j + 1);
+			arrayToSort.putElementByIndex(value, j + 1);
 		}
 		return arrayToSort;
 	}
 
 	private static void swapElements(CustomArray arrayToSort, int i, int j) {
-		int temp = arrayToSort.getElementByIndex(i);
-		arrayToSort.setElementByIndex(arrayToSort.getElementByIndex(j), i);
-		arrayToSort.setElementByIndex(temp, j);
+		int temp = arrayToSort.takeElementByIndex(i);
+		arrayToSort.putElementByIndex(arrayToSort.takeElementByIndex(j), i);
+		arrayToSort.putElementByIndex(temp, j);
 	}
 
 }
