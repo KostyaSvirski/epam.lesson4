@@ -7,28 +7,16 @@ import by.svirski.lesson4.task2.utils.validator.ValidatorForArray;
 
 public class DirectorService {
 
-	public int[][] bubbleSortAscending(ConditionsOfSorting condition, int numberOfLines) throws ProjectException {
+	public int[][] bubbleSortAscending(ConditionsOfSorting condition, int numberOfLines, boolean needReverse) throws ProjectException {
 		JaggedArrayCreator creator = new JaggedArrayCreator();
 		int[][] sourceArray = creator.createArray(numberOfLines);
 		sourceArray = creator.fillNumbers(sourceArray);
 		if (ValidatorForArray.validate(sourceArray)) {
-			sourceArray = SortingService.sort(sourceArray, condition, false);
+			sourceArray = SortingService.sort(sourceArray, condition, needReverse);
 			return sourceArray;
 		} else {
 			throw new ProjectException("not valid array");
 		}
 	}
 	
-	public int[][] bubbleSortDescending(ConditionsOfSorting condition, int numberOfLines) throws ProjectException {
-		JaggedArrayCreator creator = new JaggedArrayCreator();
-		int[][] sourceArray = creator.createArray(numberOfLines);
-		sourceArray = creator.fillNumbers(sourceArray);
-		if (ValidatorForArray.validate(sourceArray)) {
-			sourceArray = SortingService.sort(sourceArray, condition, true);
-			return sourceArray;
-		} else {
-			throw new ProjectException("not valid array");
-		}
-	}
-
 }

@@ -8,7 +8,7 @@ public class JaggedArrayCreator {
 		Random random = new Random();
 		int[][] newArray = new int[numberOfLines][];
 		for (int i = 0; i < numberOfLines; i++) {
-			newArray[i] = new int[random.nextInt(10) + 1];
+			newArray[i] = new int[random.nextInt(10) +1];
 		}
 		return newArray;
 	}
