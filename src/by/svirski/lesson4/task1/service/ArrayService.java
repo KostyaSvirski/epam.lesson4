@@ -67,7 +67,7 @@ public class ArrayService {
 		return result;
 	}
 
-	// 1: refactor in one method
+	
 	public static ArrayList<Integer> findPrimeNumbersWrapper(CustomArray sourceArray) throws ProjectException {
 		ArrayList<Integer> primeNumbers = new ArrayList<Integer>();
 		for (int i = 0; i < sourceArray.getLength(); i++) {
@@ -91,7 +91,7 @@ public class ArrayService {
 		return false;
 	}
 
-	// 2
+	
 	public static ArrayList<Integer> findFibonacciNumbersWrapper(CustomArray sourceArray) throws ProjectException {
 		ArrayList<Integer> fibonacciNumbers = new ArrayList<Integer>();
 		for (int i = 0; i < sourceArray.getLength(); i++) {
@@ -116,7 +116,7 @@ public class ArrayService {
 		return Double.compare(root, Math.floor(root)) == 0;
 	}
 
-	// 3
+	
 	public static ArrayList<Integer> findNumbersSameDigitsWrapper(CustomArray sourceArray) {
 		ArrayList<Integer> numbersWithSameDigits = new ArrayList<Integer>();
 		for (int i = 0; i < sourceArray.getLength(); i++) {
